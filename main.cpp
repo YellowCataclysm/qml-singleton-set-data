@@ -25,6 +25,7 @@ void setJSCode( QObject * root ) {
                  TestSingleton.value1 = "JSValue1"
                  TestSingleton.value2 = "JSValue3"
                  TestSingleton.value3 = "JSValue2")code";
+    QMetaObject::invokeMethod(root,"setPropertiesWithRawJS", Q_ARG(QVariant, QVariant::fromValue(js)));
 }
 
 void setCustomContainer(QObject * root) {
@@ -49,7 +50,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("props", prop);
 
     auto root = engine.rootObjects().first();
-    setCustomContainer(root);
+
+    // Change with one of functions provided above to test
+    setJSCode(root);
 
     int code = app.exec();
     delete prop;
