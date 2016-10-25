@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>TSingleton.qml</file>
+        <file>qmldir</file>
+    </qresource>
+</RCC>
